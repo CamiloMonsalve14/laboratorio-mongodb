@@ -1,19 +1,30 @@
-const createUser = undefined;
+const connectDB = require("./src/db");
 
-const findUsers = undefined;
+const createUser = async (user)=>{
+  try {
+    const db = await connectDB();
+    const collectionUsers = db.collection("users");
+    const result = await collectionUsers.insertOne(user);
+    return result;
+  } catch (error) {
+    return error;
+  }
+};
 
-const findUserById = undefined;
+// const findUsers = undefined;
 
-const deleteUserById = undefined;
+// const findUserById = undefined;
 
-const updateUser = undefined;
+// const deleteUserById = undefined;
+
+// const updateUser = undefined;
 
 const CRUD = {
   createUser,
-  findUsers,
-  findUserById,
-  deleteUserById,
-  updateUser,
+  // findUsers,
+  // findUserById,
+  // deleteUserById,
+  // updateUser,
 };
 
 module.exports = CRUD;
